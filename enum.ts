@@ -43,3 +43,52 @@ let a: number[] = [1, 2, 3]
 let ro: ReadonlyArray<number> = a
 // ro[1] = 5  //报错，因为ro是只读的
 console.log(a = ro as number[])
+// 类
+class Greeter {
+  greeting: string;
+  constructor(message:string) {
+    this.greeting = message
+  };
+  great() {
+    return 'hello ' + this.greeting
+  }
+}
+let greeter = new Greeter('world')
+console.log(greeter.great())
+
+class Animal {
+  move(kms: number = 0) {
+    console.log(`animal move ${kms}m.` )
+  }
+}
+class Dogs extends Animal {
+  dark() {
+    console.log('darking')
+  }
+}
+const dog = new Dogs()
+dog.move(100)
+dog.dark()
+
+//类可以重写父类的方法
+class Animals {
+  name: string;
+  constructor(theName: string) {
+    this.name = theName
+  }
+  move(kms: number = 10) {
+    console.log(`${this.name} move ${kms}m.`)
+  }
+}
+class Snake extends Animals {
+  constructor(name: string) {
+    super(name)
+  }
+  move(kms: number = 5) {
+    console.log('snake moving')
+    super.move(kms)
+  }
+}
+let snakechildren = new Snake('snake')
+snakechildren.move()
+snakechildren.move(15)
