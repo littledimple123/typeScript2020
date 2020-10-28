@@ -182,3 +182,67 @@ var Workers = /** @class */ (function (_super) {
 var hanmei = new Workers('hanmei', 'hr');
 console.log(hanmei.getElevatorPitch());
 // let recycleWork = new work('recycleWork') // 构造函数被protected,不能实例化
+//存取器
+// let passcode = "secret passcode";
+// class House {
+//   private homeCode: string;
+//   get fullname(): string {
+//     return this.homeCode
+//   }
+//   set fullname(newcode: string) {
+//     if (passcode && passcode == "secret passcode") {
+//       this.homeCode = newcode;
+//     }
+//     else {
+//       console.log("Error: Unauthorized update of employee!");
+//     }
+//   }
+// }
+// let house = new House()
+// house.homecode = '1234'
+// 静态属性  静态属性是在类上，而不是类的实例上，所以访问静态属性时，用类名.静态属性。下面的例子上Grid.origin
+var Grid = /** @class */ (function () {
+    function Grid(scale) {
+        this.scale = scale;
+    }
+    Grid.prototype.calculateDistanceFromOrigin = function (point) {
+        var xDist = (point.x - Grid.origin.x);
+        var yDist = (point.y - Grid.origin.y);
+        return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;
+    };
+    Grid.origin = { x: 0, y: 0 };
+    return Grid;
+}());
+var grid1 = new Grid(1.0); // 1x scale
+var grid2 = new Grid(5.0); // 5x scale
+console.log(grid1.calculateDistanceFromOrigin({ x: 10, y: 10 }));
+console.log(grid2.calculateDistanceFromOrigin({ x: 10, y: 10 }));
+// 抽象类  抽象类作为派生类的基类，一般不会实例化。抽象类中的抽象方法不包含具体实现但是必须在派生类中实现。
+var Department = /** @class */ (function () {
+    function Department(_name) {
+        this._name = _name;
+    }
+    Department.prototype.printName = function () {
+        console.log('department name is' + this._name);
+    };
+    return Department;
+}());
+var AccountingDepartment = /** @class */ (function (_super) {
+    __extends(AccountingDepartment, _super);
+    function AccountingDepartment() {
+        return _super.call(this, 'Accounting') || this;
+    }
+    AccountingDepartment.prototype.greetDepartment = function () {
+        console.log('The Accounting Department meets each Monday at 10am.');
+    };
+    AccountingDepartment.prototype.generateReports = function () {
+        console.log('Generating accounting reports...');
+    };
+    return AccountingDepartment;
+}(Department));
+var department; // 允许创建一个对抽象类型的引用
+// department = new Department() // 不能创建一个抽象类的实例
+department = new AccountingDepartment();
+department.printName();
+department.greetDepartment();
+// department.generateReports() //方法在声明的抽象类中不存在
