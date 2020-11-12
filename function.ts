@@ -103,4 +103,37 @@ function disp(name: string | string[]) {
   }
 }
 disp('aaaa')
-disp(['aaa','bbb','ccc'])
+disp(['aaa', 'bbb', 'ccc'])
+//联合类型和接口
+interface RunOption {
+  program: string,
+  commandline: string[] | string |(()=>string)
+}
+let options: RunOption = {
+  program: 'test1',
+  commandline:'runing'
+}
+console.log(options.commandline)
+
+options = { program: 'test2', commandline: ['hello', 'world'] }
+console.log(options.commandline[0])
+options = { program: 'test3', commandline: () => { return 'hello typescript' } }
+let fn:any = options.commandline
+console.log(fn())
+// 接口和类的相同点和不同点
+//相同点：都能声明成员
+//不同点: 接口interface 只声明成员方法，但是不做实现，（只是定义了这个接口会有什么，但是没有告诉具体是什么）class类声明并实现
+// class类通过 implements 可以实现接口，如下所例
+interface ILoan {
+  interest: number
+}
+class AgriLoan implements ILoan {
+  interest: number
+  rebate: number
+  constructor(interest: number, rebate: number) {
+    this.interest = interest
+    this.rebate = rebate
+  }
+}
+let obj = new AgriLoan(10, 1)
+console.log('利润为:' + obj.interest + ',抽成为：'+ obj.rebate)

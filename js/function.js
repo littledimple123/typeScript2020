@@ -93,3 +93,21 @@ function disp(name) {
 }
 disp('aaaa');
 disp(['aaa', 'bbb', 'ccc']);
+let options = {
+    program: 'test1',
+    commandline: 'runing'
+};
+console.log(options.commandline);
+options = { program: 'test2', commandline: ['hello', 'world'] };
+console.log(options.commandline[0]);
+options = { program: 'test3', commandline: () => { return 'hello typescript'; } };
+let fn = options.commandline;
+console.log(fn());
+class AgriLoan {
+    constructor(interest, rebate) {
+        this.interest = interest;
+        this.rebate = rebate;
+    }
+}
+let obj = new AgriLoan(10, 1);
+console.log('利润为:' + obj.interest + ',抽成为：' + obj.rebate);
