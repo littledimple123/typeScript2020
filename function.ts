@@ -136,4 +136,5 @@ class AgriLoan implements ILoan {
   }
 }
 let obj = new AgriLoan(10, 1)
-console.log('利润为:' + obj.interest + ',抽成为：'+ obj.rebate)
+console.log('利润为:' + obj.interest + ',抽成为：' + obj.rebate)
+
