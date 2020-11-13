@@ -1,4 +1,3 @@
-"use strict";
 // 定义函数类型  1、有返回值，函数的返回值加上类型注解
 function total(one, two) {
     return one + two;
@@ -46,14 +45,43 @@ let girl = {
     sex: '女'
 };
 fillerPeople(girl);
-// 接口和类型别名的区别
-// 类型别名可以直接给类型，而接口必须代表对象
-// type Girl1 = string
-// const girl = {
-//   name: '张三',
-//   age: 25,
-//   sex:'女'
-// }
-//类中的访问类型 public,private protect
-//private 只能在类中访问，不能在子类和实例中访问
-// protect 在类中访问，子类（继承）中访问，实例中不能访问
+let www = {
+    aaa: true,
+    say: () => {
+        return 'www';
+    }
+};
+let ttt = {
+    aaa: false,
+    skill: () => {
+        return 'ttt';
+    }
+};
+function juderWho(animal) {
+    if (animal.aaa) {
+        animal.say();
+    }
+    else {
+        animal.skill();
+    }
+}
+// 枚举
+var Status;
+(function (Status) {
+    Status[Status["MASSAGE"] = 0] = "MASSAGE";
+    Status[Status["SPA"] = 1] = "SPA";
+    Status[Status["DABAOJIAN"] = 2] = "DABAOJIAN";
+})(Status || (Status = {}));
+function getServe(status) {
+    if (status === Status.MASSAGE) {
+        return "massage";
+    }
+    else if (status === Status.SPA) {
+        return "spa";
+    }
+    else if (status === Status.DABAOJIAN) {
+        return "dabaojian";
+    }
+}
+const result = getServe(Status.SPA);
+console.log(result);

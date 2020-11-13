@@ -67,3 +67,50 @@ fillerPeople(girl)
 //类中的访问类型 public,private protect
 //private 只能在类中访问，不能在子类和实例中访问
 // protect 在类中访问，子类（继承）中访问，实例中不能访问
+
+// 类型保护 --类型保护
+interface Waiter {
+  aaa: boolean
+  say: () => {}
+}
+interface Teacher {
+  aaa: boolean
+  skill: () => {}
+}
+
+let www: Waiter = {
+  aaa: true,
+  say: () => {
+    return 'www'
+  }
+}
+let ttt: Teacher = {
+  aaa: false,
+  skill: () => {
+    return 'ttt'
+  }
+}
+function juderWho(animal:Waiter|Teacher) {
+  if (animal.aaa) {
+    (animal as Waiter).say();
+  }else{
+    (animal as Teacher).skill();
+  }
+}
+// 枚举
+enum Status {
+  MASSAGE,
+  SPA,
+  DABAOJIAN
+}
+function getServe(status: any) {
+  if (status === Status.MASSAGE) {
+    return "massage";
+  } else if (status === Status.SPA) {
+    return "spa";
+  } else if (status === Status.DABAOJIAN) {
+    return "dabaojian";
+  }
+}
+const result = getServe(Status.SPA)
+console.log(result)

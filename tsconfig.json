@@ -1,6 +1,4 @@
 {
-  "outDir": "./build" ,
-  "rootDir": "./src" ,
   "compilerOptions": {
     "target": "es6",
     "noImplicitAny": false,
@@ -8,6 +6,6 @@
     "removeComments": false,
     "sourceMap": false,
     "outDir": "./js",
-    "strict":true
+    "rootDir": "./src"
   }
 }
