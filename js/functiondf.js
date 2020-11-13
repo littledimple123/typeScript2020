@@ -1,3 +1,4 @@
+"use strict";
 // 定义函数类型  1、有返回值，函数的返回值加上类型注解
 function total(one, two) {
     return one + two;
@@ -45,3 +46,14 @@ let girl = {
     sex: '女'
 };
 fillerPeople(girl);
+// 接口和类型别名的区别
+// 类型别名可以直接给类型，而接口必须代表对象
+// type Girl1 = string
+// const girl = {
+//   name: '张三',
+//   age: 25,
+//   sex:'女'
+// }
+//类中的访问类型 public,private protect
+//private 只能在类中访问，不能在子类和实例中访问
+// protect 在类中访问，子类（继承）中访问，实例中不能访问

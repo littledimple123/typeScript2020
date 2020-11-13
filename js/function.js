@@ -1,3 +1,4 @@
+"use strict";
 //函数
 function buildName(firstName, ...lastName) {
     console.log(firstName + '' + lastName);

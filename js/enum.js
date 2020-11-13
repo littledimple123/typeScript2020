@@ -1,3 +1,4 @@
+"use strict";
 // 枚举
 var Color;
 (function (Color) {

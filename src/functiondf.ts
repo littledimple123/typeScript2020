@@ -32,9 +32,9 @@ console.log(arr3)
 console.log(person)
 // 2、可以用类定义
 class Mada {
-  name: string
-  age: number
-  sex:string
+  'name': string
+  'age': number
+  'sex':string
 }
 const arr4: Mada[] = [
   {name:'张三',age:10,sex:'男'}
@@ -64,3 +64,6 @@ fillerPeople(girl)
 //   age: 25,
 //   sex:'女'
 // }
+//类中的访问类型 public,private protect
+//private 只能在类中访问，不能在子类和实例中访问
+// protect 在类中访问，子类（继承）中访问，实例中不能访问
